@@ -1,0 +1,43 @@
+{
+  "folders": [
+    {
+      "name": "shell",
+      "path": "apps/shell"
+    },
+    {
+      "name": "place-checkin",
+      "path": "apps/place/checkin"
+    },
+    {
+      "name": "schedule-checkin",
+      "path": "apps/schedule/checkin"
+    },
+    {
+      "name": "locker-daily-checkin",
+      "path": "apps/locker/daily-checkin"
+    },
+    {
+      "name": "locker-period-checkin",
+      "path": "apps/locker/period-checkin"
+    },
+    {
+      "name": "locker-realtime-board",
+      "path": "apps/locker/realtime-board"
+    },
+    {
+      "name": "shell-router",
+      "path": "packages/shell-router"
+    },
+    {
+      "name": "ui-kit",
+      "path": "packages/ui-kit"
+    },
+    {
+      "name": "monorepo",
+      "path": "."
+    }
+  ],
+  "settings": {
+    "typescript.tsdk": "monorepo/node_modules/typescript/lib"
+  }
+}
