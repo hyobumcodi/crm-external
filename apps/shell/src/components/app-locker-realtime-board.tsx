@@ -1,8 +1,10 @@
 import React, { useEffect, useRef } from "react";
-import inject from "locker-realtime-board/injector";
 import { useLocation } from "react-router-dom";
+import { importRemote } from "@module-federation/utilities";
+
+import { type InjectFuncType, useShellEvent } from "@bodycodi/shell-router";
+
 import { appLockerRealtimeBoardBasename } from "../constants/prefix";
-import { useShellEvent } from "@bodycodi/shell-router";
 
 export default function AppLockerRealtimeBoard() {
   const wrapperRef = useRef<HTMLDivElement>(null);
@@ -17,12 +19,28 @@ export default function AppLockerRealtimeBoard() {
     if (!isFirstRunRef.current) {
       return;
     }
-    unmountRef.current = inject({
-      routerType: "memory",
-      rootElement: wrapperRef.current!,
-      basePath: location.pathname.replace(appLockerRealtimeBoardBasename, ""),
-    });
+
     isFirstRunRef.current = false;
+
+    importRemote<{ default: InjectFuncType }>({
+      url: "http://localhost:3001",
+      scope: "locker_realtime_board",
+      module: "injector",
+      remoteEntryFileName: `remoteEntry.js`,
+    })
+      .then(({ default: inject }) => {
+        unmountRef.current = inject({
+          routerType: "memory",
+          rootElement: wrapperRef.current!,
+          basePath: location.pathname.replace(
+            appLockerRealtimeBoardBasename,
+            ""
+          ),
+        });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   }, [location]);
 
   useEffect(() => unmountRef.current, []);

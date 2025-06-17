@@ -208,6 +208,9 @@ importers:
       '@bodycodi/ui-kit':
         specifier: workspace:*
         version: link:../../packages/ui-kit
+      '@module-federation/utilities':
+        specifier: ^3.0.5
+        version: 3.1.59(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(webpack@5.99.9)
       react:
         specifier: ^18.2.0
         version: 18.3.1
@@ -1240,8 +1243,26 @@ packages:
   '@module-federation/runtime@0.8.4':
     resolution: {integrity: sha512-yZeZ7z2Rx4gv/0E97oLTF3V6N25vglmwXGgoeju/W2YjsFvWzVtCDI7zRRb0mJhU6+jmSM8jP1DeQGbea/AiZQ==}
 
+  '@module-federation/sdk@0.15.0':
+    resolution: {integrity: sha512-PWiYbGcJrKUD6JZiEPihrXhV3bgXdll4bV7rU+opV7tHaun+Z0CdcawjZ82Xnpb8MCPGmqHwa1MPFeUs66zksw==}
+
   '@module-federation/sdk@0.8.4':
     resolution: {integrity: sha512-waABomIjg/5m1rPDBWYG4KUhS5r7OUUY7S+avpaVIY/tkPWB3ibRDKy2dNLLAMaLKq0u+B1qIdEp4NIWkqhqpg==}
+
+  '@module-federation/utilities@3.1.59':
+    resolution: {integrity: sha512-nklaoXOmcZUOeHiimUtNsidxyDkGwJ6iDOTn1eQAJseTf6CD1ke08FDcrfGK10NnFFFU1Ha7gI/NReWAvP5SPQ==}
+    peerDependencies:
+      next: '*'
+      react: ^16 || ^17 || ^18
+      react-dom: ^16 || ^17 || ^18
+      webpack: ^5.40.0
+    peerDependenciesMeta:
+      next:
+        optional: true
+      react:
+        optional: true
+      react-dom:
+        optional: true
 
   '@module-federation/webpack-bundler-runtime@0.8.4':
     resolution: {integrity: sha512-HggROJhvHPUX7uqBD/XlajGygMNM1DG0+4OAkk8MBQe4a18QzrRNzZt6XQbRTSG4OaEoyRWhQHvYD3Yps405tQ==}
@@ -4704,10 +4725,20 @@ snapshots:
       '@module-federation/sdk': 0.8.4
     optional: true
 
+  '@module-federation/sdk@0.15.0': {}
+
   '@module-federation/sdk@0.8.4':
     dependencies:
       isomorphic-rslog: 0.0.6
     optional: true
+
+  '@module-federation/utilities@3.1.59(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(webpack@5.99.9)':
+    dependencies:
+      '@module-federation/sdk': 0.15.0
+      webpack: 5.99.9(webpack-cli@4.10.0)
+    optionalDependencies:
+      react: 18.3.1
+      react-dom: 18.3.1(react@18.3.1)
 
   '@module-federation/webpack-bundler-runtime@0.8.4':
     dependencies:

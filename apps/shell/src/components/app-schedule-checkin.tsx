@@ -1,8 +1,10 @@
 import React, { useEffect, useRef } from "react";
-import inject from "schedule-checkin/injector";
 import { useLocation } from "react-router-dom";
+import { importRemote } from "@module-federation/utilities";
+
+import { type InjectFuncType, useShellEvent } from "@bodycodi/shell-router";
+
 import { appScheduleCheckinBasename } from "../constants/prefix";
-import { useShellEvent } from "@bodycodi/shell-router";
 
 export default function AppScheduleCheckin() {
   const wrapperRef = useRef<HTMLDivElement>(null);
@@ -17,12 +19,24 @@ export default function AppScheduleCheckin() {
     if (!isFirstRunRef.current) {
       return;
     }
-    unmountRef.current = inject({
-      routerType: "memory",
-      rootElement: wrapperRef.current!,
-      basePath: location.pathname.replace(appScheduleCheckinBasename, ""),
-    });
+
     isFirstRunRef.current = false;
+    importRemote<{ default: InjectFuncType }>({
+      url: "http://localhost:3004",
+      scope: "schedule_checkin",
+      module: "injector",
+      remoteEntryFileName: `remoteEntry.js`,
+    })
+      .then(({ default: inject }) => {
+        unmountRef.current = inject({
+          routerType: "memory",
+          rootElement: wrapperRef.current!,
+          basePath: location.pathname.replace(appScheduleCheckinBasename, ""),
+        });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   }, [location]);
 
   useEffect(() => unmountRef.current, []);

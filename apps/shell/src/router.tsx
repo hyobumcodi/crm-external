@@ -1,21 +1,18 @@
-import React, { Suspense } from "react";
+import React from "react";
 import {
-  createBrowserRouter,
   Navigate,
   RouterProvider,
+  createBrowserRouter,
 } from "react-router-dom";
+
 import Layout from "./components/layout";
+import AppScheduleCheckin from "./components/app-schedule-checkin";
+import AppLockerRealtimeBoard from "./components/app-locker-realtime-board";
+
 import {
   appScheduleCheckinBasename,
   appLockerRealtimeBoardBasename,
 } from "./constants/prefix";
-
-const AppScheduleCheckinLazy = React.lazy(
-  () => import("./components/app-schedule-checkin")
-);
-const AppLockerRealtimeBoardLazy = React.lazy(
-  () => import("./components/app-locker-realtime-board")
-);
 
 const browserRouter = createBrowserRouter([
   {
@@ -25,23 +22,15 @@ const browserRouter = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <Navigate to={`${appLockerRealtimeBoardBasename}`} />,
+        element: <Navigate to={appLockerRealtimeBoardBasename} />,
       },
       {
         path: `${appLockerRealtimeBoardBasename}/*`,
-        element: (
-          <Suspense fallback="Loading Locker Realtime Board...">
-            <AppLockerRealtimeBoardLazy />
-          </Suspense>
-        ),
+        element: <AppLockerRealtimeBoard />,
       },
       {
         path: `${appScheduleCheckinBasename}/*`,
-        element: (
-          <Suspense fallback="Loading Schedule Checkin...">
-            <AppScheduleCheckinLazy />
-          </Suspense>
-        ),
+        element: <AppScheduleCheckin />,
       },
     ],
   },
