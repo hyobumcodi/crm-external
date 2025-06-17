@@ -1,11 +1,21 @@
-import React from "react";
+import React, { Suspense } from "react";
 import { type RouteObject } from "react-router-dom";
 import { AppRoutingManager } from "@bodycodi/shell-router";
+
+const ErrorBoundary = React.lazy(
+  () => import("fragment_error_connections/container")
+);
 
 export const routes: RouteObject[] = [
   {
     path: "/",
-    element: <AppRoutingManager type="app-locker-realtime-board" />,
+    element: (
+      <Suspense fallback={<div>Loading...</div>}>
+        <ErrorBoundary>
+          <AppRoutingManager type="app-locker-realtime-board" />
+        </ErrorBoundary>
+      </Suspense>
+    ),
     errorElement: <div>App Realtime Board Error</div>,
     children: [
       {

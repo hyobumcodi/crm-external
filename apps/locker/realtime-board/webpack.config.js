@@ -45,7 +45,10 @@ module.exports = (_, argv) => ({
     new ModuleFederationPlugin({
       name: "locker_realtime_board",
       filename: "remoteEntry.js",
-      remotes: {},
+      remotes: {
+        fragment_error_connections:
+          "fragment_error_connections@http://localhost:5001/remoteEntry.js",
+      },
       exposes: {
         "./injector": "./src/injector.tsx",
       },

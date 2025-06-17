@@ -1,11 +1,10 @@
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin");
-const Dotenv = require("dotenv-webpack");
 
 const deps = require("./package.json").dependencies;
 module.exports = (_, argv) => ({
   output: {
-    publicPath: "http://localhost:3004/",
+    publicPath: "http://localhost:5001/",
   },
 
   resolve: {
@@ -13,7 +12,7 @@ module.exports = (_, argv) => ({
   },
 
   devServer: {
-    port: 3004,
+    port: 5001,
     historyApiFallback: true,
   },
 
@@ -41,16 +40,12 @@ module.exports = (_, argv) => ({
   },
 
   plugins: [
-    new Dotenv({ path: "../../../.env" }),
     new ModuleFederationPlugin({
-      name: "schedule_checkin",
+      name: "fragment_error_connections",
       filename: "remoteEntry.js",
-      remotes: {
-        fragment_error_connections:
-          "fragment_error_connections@http://localhost:5001/remoteEntry.js",
-      },
+      remotes: {},
       exposes: {
-        "./injector": "./src/injector.tsx",
+        "./container": "./src/containers/error-connections-container.tsx",
       },
       shared: {
         ...deps,
@@ -62,10 +57,10 @@ module.exports = (_, argv) => ({
           singleton: true,
           requiredVersion: deps["react-dom"],
         },
-        "@bodycodi/ui-kit": {
+        "@bodycodi/shell-router": {
           singleton: true,
         },
-        "@bodycodi/shell-router": {
+        "@bodycodi/ui-kit": {
           singleton: true,
         },
       },

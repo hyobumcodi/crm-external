@@ -25,6 +25,10 @@
       "path": "apps/locker/realtime-board"
     },
     {
+      "name": "fragment-error-connections",
+      "path": "global-features/fragment-error-connections"
+    },
+    {
       "name": "shell-router",
       "path": "packages/shell-router"
     },

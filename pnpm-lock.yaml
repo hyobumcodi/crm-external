@@ -291,6 +291,94 @@ importers:
         specifier: ^4.3.1
         version: 4.15.2(webpack-cli@4.10.0)(webpack@5.99.9)
 
+  global-features/fragment-error-connections:
+    dependencies:
+      '@babel/runtime':
+        specifier: ^7.23.6
+        version: 7.27.6
+      '@bodycodi/shell-router':
+        specifier: workspace:*
+        version: link:../../packages/shell-router
+      '@bodycodi/ui-kit':
+        specifier: workspace:*
+        version: link:../../packages/ui-kit
+      react:
+        specifier: ^18.2.0
+        version: 18.3.1
+      react-dom:
+        specifier: ^18.2.0
+        version: 18.3.1(react@18.3.1)
+      react-router-dom:
+        specifier: ^6.21.1
+        version: 6.30.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+    devDependencies:
+      '@babel/core':
+        specifier: ^7.15.8
+        version: 7.27.4
+      '@babel/plugin-transform-runtime':
+        specifier: ^7.15.8
+        version: 7.27.4(@babel/core@7.27.4)
+      '@babel/preset-env':
+        specifier: ^7.15.8
+        version: 7.27.2(@babel/core@7.27.4)
+      '@babel/preset-react':
+        specifier: ^7.14.5
+        version: 7.27.1(@babel/core@7.27.4)
+      '@babel/preset-typescript':
+        specifier: ^7.10.4
+        version: 7.27.1(@babel/core@7.27.4)
+      '@types/react':
+        specifier: ^18.2.0
+        version: 18.3.23
+      '@types/react-dom':
+        specifier: ^18.2.0
+        version: 18.3.7(@types/react@18.3.23)
+      '@typescript-eslint/eslint-plugin':
+        specifier: ^6.14.0
+        version: 6.21.0(@typescript-eslint/parser@6.21.0(eslint@8.57.1)(typescript@5.2.2))(eslint@8.57.1)(typescript@5.2.2)
+      '@typescript-eslint/parser':
+        specifier: ^6.14.0
+        version: 6.21.0(eslint@8.57.1)(typescript@5.2.2)
+      autoprefixer:
+        specifier: ^10.1.0
+        version: 10.4.21(postcss@8.5.4)
+      babel-loader:
+        specifier: ^8.2.2
+        version: 8.4.1(@babel/core@7.27.4)(webpack@5.99.9)
+      css-loader:
+        specifier: ^6.3.0
+        version: 6.11.0(@rspack/core@1.2.8)(webpack@5.99.9)
+      eslint:
+        specifier: ^8.55.0
+        version: 8.57.1
+      eslint-plugin-react-hooks:
+        specifier: ^4.6.0
+        version: 4.6.2(eslint@8.57.1)
+      html-webpack-plugin:
+        specifier: ^5.3.2
+        version: 5.6.3(@rspack/core@1.2.8)(webpack@5.99.9)
+      postcss:
+        specifier: ^8.2.1
+        version: 8.5.4
+      postcss-loader:
+        specifier: ^4.1.0
+        version: 4.3.0(postcss@8.5.4)(webpack@5.99.9)
+      style-loader:
+        specifier: ^3.3.0
+        version: 3.3.4(webpack@5.99.9)
+      typescript:
+        specifier: 5.2.2
+        version: 5.2.2
+      webpack:
+        specifier: ^5.57.1
+        version: 5.99.9(webpack-cli@4.10.0)
+      webpack-cli:
+        specifier: ^4.10.0
+        version: 4.10.0(webpack-dev-server@4.15.2)(webpack@5.99.9)
+      webpack-dev-server:
+        specifier: ^4.3.1
+        version: 4.15.2(webpack-cli@4.10.0)(webpack@5.99.9)
+
   packages/shell-router:
     devDependencies:
       '@types/react':
