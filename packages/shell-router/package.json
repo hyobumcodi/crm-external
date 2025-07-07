@@ -1,5 +1,5 @@
 {
-  "name": "@bodycodi/shell-router",
+  "name": "@packages/shell-router",
   "private": true,
   "version": "0.0.0",
   "type": "module",

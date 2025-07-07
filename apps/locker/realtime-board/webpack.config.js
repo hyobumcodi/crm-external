@@ -62,10 +62,10 @@ module.exports = (_, argv) => ({
           singleton: true,
           requiredVersion: deps["react-dom"],
         },
-        "@bodycodi/ui-kit": {
+        "@packages/ui-kit": {
           singleton: true,
         },
-        "@bodycodi/shell-router": {
+        "@packages/shell-router": {
           singleton: true,
         },
       },

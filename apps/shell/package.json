@@ -2,8 +2,8 @@
   "name": "@bodycodi/shell",
   "version": "1.0.0",
   "scripts": {
-    "build": "webpack --mode production",
-    "build:dev": "webpack --mode development",
+    "build": "pnpm -w build:packages && webpack --mode production",
+    "build:dev": "pnpm -w build:packages && webpack --mode development",
     "build:start": "cd dist && PORT=3000 npx serve -s",
     "start": "webpack serve --open --mode development",
     "start:live": "webpack serve --open --mode development --live-reload --hot"
@@ -19,7 +19,7 @@
     "@babel/preset-env": "^7.15.8",
     "@babel/preset-react": "^7.14.5",
     "@babel/preset-typescript": "^7.10.4",
-    "@types/node": "^20.10.5",
+    "@types/node": "^20.10.7",
     "@types/react": "^18.2.0",
     "@types/react-dom": "^18.2.0",
     "@typescript-eslint/eslint-plugin": "^6.14.0",
@@ -40,9 +40,9 @@
     "webpack-dev-server": "^4.3.1"
   },
   "dependencies": {
+    "@packages/shell-router": "workspace:*",
+    "@packages/ui-kit": "workspace:*",
     "@babel/runtime": "^7.23.6",
-    "@bodycodi/shell-router": "workspace:*",
-    "@bodycodi/ui-kit": "workspace:*",
     "@module-federation/utilities": "^3.0.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

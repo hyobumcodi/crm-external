@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "turbo start:live",
     "build": "turbo build",
+    "build:packages": "turbo build --filter=@packages/*",
     "serve": "turbo build:start"
   },
   "keywords": [],

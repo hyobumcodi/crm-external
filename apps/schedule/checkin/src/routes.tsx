@@ -1,7 +1,7 @@
 import React, { Suspense } from "react";
 
 import { type RouteObject } from "react-router-dom";
-import { AppRoutingManager } from "@bodycodi/shell-router";
+import { AppRoutingManager } from "@packages/shell-router";
 
 const ErrorBoundary = React.lazy(
   () => import("fragment_error_connections/container")

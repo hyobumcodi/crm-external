@@ -1,4 +1,4 @@
-import { injectFactory } from "@bodycodi/shell-router";
+import { injectFactory } from "@packages/shell-router";
 import { routes } from "./routes";
 
 const inject = injectFactory({

@@ -45,12 +45,7 @@ module.exports = (_, argv) => ({
     new ModuleFederationPlugin({
       name: "shell",
       filename: "remoteEntry.js",
-      remotes: {
-        "locker-realtime-board":
-          "locker_realtime_board@http://localhost:3001/remoteEntry.js",
-        "schedule-checkin":
-          "schedule_checkin@http://localhost:3004/remoteEntry.js",
-      },
+      remotes: {},
       exposes: {},
       shared: {
         ...deps,
@@ -62,10 +57,10 @@ module.exports = (_, argv) => ({
           singleton: true,
           requiredVersion: deps["react-dom"],
         },
-        "@bodycodi/ui-kit": {
+        "@packages/ui-kit": {
           singleton: true,
         },
-        "@bodycodi/shell-router": {
+        "@packages/shell-router": {
           singleton: true,
         },
       },

@@ -19,6 +19,7 @@
     "@babel/preset-env": "^7.15.8",
     "@babel/preset-react": "^7.14.5",
     "@babel/preset-typescript": "^7.10.4",
+    "@types/node": "^20.10.7",
     "@types/react": "^18.2.0",
     "@types/react-dom": "^18.2.0",
     "@typescript-eslint/eslint-plugin": "^6.14.0",
@@ -26,6 +27,7 @@
     "autoprefixer": "^10.1.0",
     "babel-loader": "^8.2.2",
     "css-loader": "^6.3.0",
+    "dotenv-webpack": "^8.0.1",
     "eslint": "^8.55.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "html-webpack-plugin": "^5.3.2",
@@ -38,8 +40,8 @@
     "webpack-dev-server": "^4.3.1"
   },
   "dependencies": {
-    "@bodycodi/shell-router": "workspace:*",
-    "@bodycodi/ui-kit": "workspace:*",
+    "@packages/shell-router": "workspace:*",
+    "@packages/ui-kit": "workspace:*",
     "@babel/runtime": "^7.23.6",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from "react";
 import { useLocation } from "react-router-dom";
 import { importRemote } from "@module-federation/utilities";
 
-import { type InjectFuncType, useShellEvent } from "@bodycodi/shell-router";
+import { type InjectFuncType, useShellEvent } from "@packages/shell-router";
 
 import { appLockerRealtimeBoardBasename } from "../constants/prefix";
 
@@ -23,7 +23,7 @@ export default function AppLockerRealtimeBoard() {
     isFirstRunRef.current = false;
 
     importRemote<{ default: InjectFuncType }>({
-      url: "http://localhost:3001",
+      url: process.env.REACT_APP_MICROAPP_LOCKER_REALTIME_BOARD!,
       scope: "locker_realtime_board",
       module: "injector",
       remoteEntryFileName: `remoteEntry.js`,

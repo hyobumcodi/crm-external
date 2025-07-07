@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from "react";
 import { useLocation } from "react-router-dom";
 import { importRemote } from "@module-federation/utilities";
 
-import { type InjectFuncType, useShellEvent } from "@bodycodi/shell-router";
+import { type InjectFuncType, useShellEvent } from "@packages/shell-router";
 
 import { appScheduleCheckinBasename } from "../constants/prefix";
 
@@ -22,7 +22,7 @@ export default function AppScheduleCheckin() {
 
     isFirstRunRef.current = false;
     importRemote<{ default: InjectFuncType }>({
-      url: "http://localhost:3004",
+      url: process.env.REACT_APP_MICROAPP_SCHEDULE_CHECKIN!,
       scope: "schedule_checkin",
       module: "injector",
       remoteEntryFileName: `remoteEntry.js`,

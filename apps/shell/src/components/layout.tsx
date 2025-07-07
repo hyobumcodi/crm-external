@@ -1,7 +1,8 @@
 import React from "react";
 import { Link, NavLink, Outlet } from "react-router-dom";
-import { useShellNavigateListener } from "@bodycodi/shell-router";
+import { useShellNavigateListener } from "@packages/shell-router";
 
+// import { Button } from "@packages/ui-kit";
 import {
   appScheduleCheckinBasename,
   appLockerRealtimeBoardBasename,
